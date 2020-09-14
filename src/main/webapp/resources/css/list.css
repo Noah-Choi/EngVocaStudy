@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+button
+{
+    border: 1px solid white;
+    background-color:skyblue;
+    color:white;
+    
+    margin: 10px;
+	padding: 0px;
+
+	margin-left: 10%;
+	margin-right: 10%;
+
+    width: 80%;
+    height: 15%;
+    line-height: 100px;
+    text-align: center;
+
+    border-radius: 7%;
+	
+	font-size: 40px;
+}
+
+.studying
+{
+	position: relative;
+	left: 20px; top: 40px;
+	
+	width: 20%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+	
+	border-radius: 13%;
+	
+	background-color: rgb(222, 225, 230);
+}

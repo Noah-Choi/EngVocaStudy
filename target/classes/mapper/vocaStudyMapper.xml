@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 
+<mapper namespace="vocaStudyMapper">
+
+	<select id="selectVocaCount" resultType="int">
+		select count(*) from voca where diff = #{diff}
+	</select>
+	
+	<select id="selectStudyingPage" resultType="String">
+		select page from study where id = #{id} and diff = #{diff} group by page 
+	</select>
+	
+	<insert id="insertVoca">
+        insert into voca(eng, kor, diff, seq) values(#{eng}, #{kor}, #{diff}, #{seq})
+    </insert>
+    
+	<insert id="insertForm">
+        insert into form(form, kor) values(#{form}, #{kor})
+    </insert>
+    
+    <insert id="insertDiff">
+        insert into difficulty(diff, kor, seq) values(#{diff}, #{kor}, #{seq})
+    </insert>
+
+	<insert id="insertStudy">
+        insert into study(id, diff, page, eng) values(#{id}, #{diff}, #{page}, #{eng})
+    </insert>
+    
+    <delete id="deleteStudy">
+        delete from study where id = #{id} and diff = #{diff} and page = #{page}
+    </delete>
+
+	<select id="selectDiffList" resultType="DifficultyVO">
+        select * from difficulty order by seq asc
+    </select>
+
+	 <select id="selectVocaList" resultType="VocaVO">
+        select * from voca where diff = #{diff} 
+        order by seq asc limit #{start}, #{end}
+    </select>
+    
+    <select id="selectStudyVocaList" resultType="VocaVO">
+        select * from voca where eng in (select eng from study where id = #{id} and diff = #{diff} and page = #{page}) 
+    </select>
+
+</mapper>

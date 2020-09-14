@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+button
+{
+    border: 1px solid white;
+    background-color:skyblue;
+    color:white;
+    
+    margin: 10px;
+	padding: 0px;
+
+	margin-left: 10%;
+	margin-right: 10%;
+
+    width: 80%;
+    height: 15%;
+    line-height: 100px;
+    text-align: center;
+
+    border-radius: 7%;
+
+	
+	font-size: 40px;
+}
